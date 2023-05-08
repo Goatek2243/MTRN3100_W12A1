@@ -244,12 +244,30 @@ public:
     }
 
     // Returns all edges.
-    LinkedList<Tuple<N, N, E>> edges() const { return {}; }
+    LinkedList<Tuple<N, N, E>> edges() const {
+        LinkedList<Tuple<N, N, E>> ret;
+        for (auto it = internal_.begin(); it != internal_.end(); it++) {
+            auto edges = get<1>(it->value);
+            for (auto edge = edges.begin(); edge != edges.end(); edge++) {
+                ret.push_back({get<0>(it->value), *get<0>(edge->value), get<1>(edge->value)});
+            }
+        }
+        return ret;
+    }
 
     // Returns all nodes and weights connected to src.
     LinkedList<Tuple<N, E>> edges(N const& src) const {
-        (void)src;
-        return {};
+        if (is_node(src) == false) {
+            while (1) {
+            };
+        }
+
+        auto const& edges = get<1>(find_node(src)->value);
+        LinkedList<Tuple<N, E>> ret;
+        for (auto it = edges.begin(); it != edges.end(); it++) {
+            ret.push_back({*get<0>(it->value), get<1>(it->value)});
+        }
+        return ret;
     }
 
     // Returns all weights connected between src and dst.

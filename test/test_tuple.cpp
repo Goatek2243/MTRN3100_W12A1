@@ -27,11 +27,11 @@ TEST_CASE("Multiple arguments with initialisation") {
 TEST_CASE("Equals") {
     mtrn3100::Tuple<int, float, char, float> lhs(1, 1.2, 'a', 2.2);
     mtrn3100::Tuple<int, float, char, float> rhs(1, 1.2, 'a', 2.2);
-    CHECK(operator==(lhs, rhs));  // Cannot do CHECK(lhs == rhs);
+    CHECK((lhs == rhs));
 }
 
 TEST_CASE("Not equals") {
     mtrn3100::Tuple<int, float, char, float> lhs(1, 1.2, 'a', 2.2);
     mtrn3100::Tuple<int, float, char, float> rhs(1, 1.2, 'c', 2.2);
-    CHECK(operator!=(lhs, rhs));  // Cannot do CHECK(lhs != rhs);
+    CHECK((lhs != rhs));
 }
