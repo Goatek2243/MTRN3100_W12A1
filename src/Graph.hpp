@@ -247,7 +247,7 @@ public:
     LinkedList<Tuple<N, N, E>> edges() const {
         LinkedList<Tuple<N, N, E>> ret;
         for (auto it = internal_.begin(); it != internal_.end(); it++) {
-            auto edges = get<1>(it->value);
+            auto const& edges = get<1>(it->value);
             for (auto edge = edges.begin(); edge != edges.end(); edge++) {
                 ret.push_back({get<0>(it->value), *get<0>(edge->value), get<1>(edge->value)});
             }
