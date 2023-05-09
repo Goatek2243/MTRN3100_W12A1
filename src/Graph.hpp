@@ -2,6 +2,8 @@
 
 #include <math.h>
 
+#include <iostream>
+
 #include "Tuple.hpp"  // Must appear before LinkedList.hpp.
 
 //
