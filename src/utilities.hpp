@@ -14,6 +14,8 @@ float limit(float val, float lower, float upper) {
     return val;
 }
 
+float deadband(float val, float threshold) { return fabs(val) < threshold ? 0 : val; }
+
 template <typename InputIt, typename UnaryFunction>
 void for_each(InputIt first, InputIt last, UnaryFunction unary_func) {
     for (; first != last; first++) {
